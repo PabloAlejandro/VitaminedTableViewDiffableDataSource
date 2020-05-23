@@ -4,8 +4,13 @@ open class VitaminedTableViewDiffableDataSource<SectionIdentifierType, ItemIdent
     UITableViewDiffableDataSource<SectionIdentifierType, ItemIdentifierType>
     where SectionIdentifierType : Hashable, ItemIdentifierType : Hashable
 {
+    /// Callback to override the `tableView(_:titleForHeaderInSection:) -> String?` method from `UITableViewDataSource`.
     open var titleForHeaderInSection: ((_ tableView: UITableView, _ section: Int) -> String?)?
+    
+    /// Callback to override the `tableView(_:canEditRowAt:) -> Bool` method from `UITableViewDataSource`.
     open var canEditRowAt: ((_ tableView: UITableView, _ indexPath: IndexPath) -> Bool)?
+    
+    /// Callback to override the `tableView(_:commit:forRowAt:) -> Bool` method from `UITableViewDataSource`.
     open var commit: ((_ tableView: UITableView, _ editingStyle: UITableViewCell.EditingStyle,
                        _ indexPath: IndexPath) -> Void)?
 
